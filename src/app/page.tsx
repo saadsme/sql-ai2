@@ -1,4 +1,5 @@
 "use client"
+import './globals.css'
 import React from 'react';
 import { useState } from 'react';
 import MessagesDisplay from './components/MessagesDisplay';
