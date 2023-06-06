@@ -2,14 +2,17 @@
 const nextConfig = {}
 
 module.exports = {
-    async rewrites() {
-      return [
-        {
-          source: '/api/:path*',
-          destination: '/api/completions',
-        },
-      ];
+    future: {
+      webpack5: true,
+    },
+    webpack(config) {
+      config.resolve.fallback = {
+        ...config.resolve.fallback,
+        stream: require.resolve('stream-browserify'),
+      };
+      return config;
     },
   };
+  
   
   
