@@ -12,6 +12,8 @@ const openai = new OpenAIApi(configuration);
 export default async function handler(req: any, res: any) {
   if (req.method === 'POST') {
     try {
+      console.log('creating chat completion');
+      console.log("Request is: ",req.body.message);
       const completion = await openai.createChatCompletion({
         model: 'gpt-3.5-turbo',
         messages: [
@@ -22,6 +24,7 @@ export default async function handler(req: any, res: any) {
         ],
       });
       console.log(completion);
+      console.log("Response is: ",completion.data.choices[0].message);
       res.status(200).send(completion.data.choices[0].message);
     } catch (error) {
       console.error(error);
