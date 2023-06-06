@@ -41,7 +41,7 @@ const App = () => {
           }),
         };
     
-        const response = await fetch(`/api/completions/completions`, options);
+        const response = await fetch(`/api/completions`, options);
     
         if (response.ok) {
           const responseData = await response.json();
