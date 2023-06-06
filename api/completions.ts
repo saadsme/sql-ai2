@@ -22,7 +22,7 @@ export default async function handler(req: any, res: any) {
         ],
       });
       console.log(completion);
-      res.status(200).json(completion.data.choices[0].message);
+      res.status(200).send(completion.data.choices[0].message);
     } catch (error) {
       console.error(error);
       res.status(500).send('Server Error');
