@@ -2,14 +2,18 @@
 const nextConfig = {}
 
 module.exports = {
-    webpack(config) {
-      config.resolve.fallback = {
-        ...config.resolve.fallback,
-        stream: require.resolve('stream-browserify'),
-      };
+    webpack: (config, { isServer }) => {
+      if (!isServer) {
+        config.resolve.fallback = {
+          fs: false,
+          module: false,
+        };
+      }
       return config;
     },
   };
+  
+  
   
   
   
