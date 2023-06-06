@@ -1,4 +1,4 @@
-import { NextApiRequest, NextApiResponse } from 'next';
+
 import { Configuration, OpenAIApi } from 'openai';
 
 const API_KEY: string = process.env.API_KEY as string;
@@ -9,7 +9,7 @@ const configuration = new Configuration({
 
 const openai = new OpenAIApi(configuration);
 
-export default async function handler(req: NextApiRequest, res: NextApiResponse) {
+export default async function handler(req: any, res: any) {
   if (req.method === 'POST') {
     try {
       const completion = await openai.createChatCompletion({
