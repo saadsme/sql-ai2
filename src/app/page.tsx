@@ -47,7 +47,7 @@ const App = () => {
         if (response.ok) {
           const responseData = await response.json();
           console.log('response from frontend',responseData)
-          const message = responseData.choices[0]?.message;
+          const message = responseData;
           console.log('output from gpt',message)
     
           if (message) {
