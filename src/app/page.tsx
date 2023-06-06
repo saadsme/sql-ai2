@@ -1,5 +1,5 @@
 "use client"
-
+import '.index.css';
 import React from 'react';
 import { useState } from 'react';
 import MessagesDisplay from './components/MessagesDisplay';
