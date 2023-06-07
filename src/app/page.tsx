@@ -89,10 +89,10 @@ const latest = filteredGPTMessages[filteredGPTMessages.length-1]
 //console.log('latest', latest?.content)
 //console.log(chat)
   return (
-    <div className='max-w-2xl flex flex-col justify-center mx-auto my-12'>
+    <div className='max-w-sm flex flex-col justify-center mx-auto my-12 md:max-w-2xl'>
         <Nav/>
       <div className='my-2'>
-      <h1 className='w-100 flex items-center justify-center text-7xl font-bold text-gray-800'>Convert your text to SQL queries...</h1>
+      <h1 className='w-100 flex items-center justify-center text-4xl md:text-7xl font-bold text-gray-800'>Convert your text to SQL queries...</h1>
       <p className='w-100 flex items-center justify-center text-sm my-4 text-gray-600'>Powered by the OpenAI API using GPT3.5</p>
       </div>
     <form className="app max-w-2xl flex flex-col justify-center bg-gray-100 rounded-xl drop-shadow-md " onSubmit={getQuery}>
