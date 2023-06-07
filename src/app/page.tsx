@@ -1,9 +1,11 @@
 "use client"
 import './index.css'
 import React from 'react';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import MessagesDisplay from './components/MessagesDisplay';
 import CodeDisplay from './components/CodeDisplay';
+import Nav from './components/Nav';
+import Footer from './components/Footer';
 import { Bars } from 'react-loader-spinner';
 
 
@@ -19,6 +21,12 @@ const App = () => {
   const [loading, setLoading] = useState<boolean>(false)
   const [index, setIndex] = useState('')
 
+
+  useEffect(() => {
+    var input = document.getElementById('text-input');
+    input?.focus();
+  });
+  
   const handleIndex = (val: string) => {
     setIndex(val)
     setValue(filteredUserMessages[parseInt(val,10)].content)
@@ -82,15 +90,15 @@ const latest = filteredGPTMessages[filteredGPTMessages.length-1]
 //console.log(chat)
   return (
     <div className='max-w-2xl flex flex-col justify-center mx-auto my-12'>
-        
+        <Nav/>
       <div className='my-2'>
-      <h1 className='w-100 flex items-center justify-center text-6xl font-bold '>Text to SQL</h1>
-      <p className='w-100 flex items-center justify-center text-lg font-bold my-4'>Convert your Text to SQL in seconds with AI!</p>
+      <h1 className='w-100 flex items-center justify-center text-7xl font-bold text-gray-800'>Convert your text to SQL queries...</h1>
+      <p className='w-100 flex items-center justify-center text-sm my-4 text-gray-600'>Powered by the OpenAI API using GPT3.5</p>
       </div>
-    <div className="app max-w-2xl flex flex-col justify-center bg-gray-100 rounded-xl drop-shadow-md ">
-      <input className="text-center text-md" placeholder='Create a Table for Cars' value={value} onChange={e => setValue(e.target.value)}/>
+    <form className="app max-w-2xl flex flex-col justify-center bg-gray-100 rounded-xl drop-shadow-md " onSubmit={getQuery}>
+      <input id='text-input' className="text-center text-md" placeholder='Create a Table for Cars' value={value} onChange={e => setValue(e.target.value)}/>
       <div className='button-container flex justify-center space-x-3 text-lg'>
-        <button className="bg-sky-300 rounded-2xl font-bold px-3 py-1" id='get-query' onClick={getQuery}>Generate!</button>
+        <button className="bg-gray-300 rounded-2xl font-bold px-3 py-1 hover:bg-gray-800 hover:text-white" id='get-query' onClick={getQuery}>Generate!</button>
         <button className="bg-gray-800 rounded-2xl text-white px-3 py-1" id='clear-query' onClick={() =>{
           setValue("")
           setChat([])
@@ -110,7 +118,8 @@ const latest = filteredGPTMessages[filteredGPTMessages.length-1]
       
       
       
-    </div>
+    </form>
+    <Footer />
     </div>
   );
 }
