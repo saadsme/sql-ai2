@@ -1,6 +1,6 @@
 
 export const metadata = {
-  title: 'AI-SQL.tech',
+  title: 'Text to SQL Tool',
   description: 'Side Project by Ahmed Saad',
   image: 'https://ai-sql.tech/FinalSQL.png',
 }
