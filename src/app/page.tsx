@@ -7,7 +7,7 @@ import CodeDisplay from './components/CodeDisplay';
 import Nav from './components/Nav';
 import Footer from './components/Footer';
 import { Bars } from 'react-loader-spinner';
-import { Analytics } from '@vercel/analytics/react';
+
 
 
 interface ChatData {
@@ -97,7 +97,7 @@ const latest = filteredGPTMessages[filteredGPTMessages.length-1]
   return (
     <div className='max-w-sm flex flex-col justify-center mx-auto my-12 md:max-w-2xl'>
         <Nav/>
-        <Analytics />
+        
       <div className='my-2'>
       <h1 className='w-100 flex items-center justify-center text-4xl md:text-7xl font-bold text-gray-800'>Convert your text to SQL queries...</h1>
       <p className='w-100 flex items-center justify-center text-sm my-4 text-gray-600'>Powered by the OpenAI API using GPT3.5</p>

@@ -1,4 +1,4 @@
-
+import { Analytics } from '@vercel/analytics/react';
 export const metadata = {
   title: 'Text to SQL Tool',
   description: 'Side Project by Ahmed Saad',
@@ -12,7 +12,9 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body>{children}</body>
+      <body>{children}
+      <Analytics />
+      </body>
     </html>
   )
 }
