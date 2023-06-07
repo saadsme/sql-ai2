@@ -36,6 +36,11 @@ const App = () => {
       console.log('item clicked!!')
     }
 
+    useEffect(() => {
+      var input = document.getElementById('text-input');
+      input?.focus();
+    });
+
 
     const getQuery = async () => {
       setLoading(true);
@@ -95,7 +100,7 @@ const latest = filteredGPTMessages[filteredGPTMessages.length-1]
       <h1 className='w-100 flex items-center justify-center text-4xl md:text-7xl font-bold text-gray-800'>Convert your text to SQL queries...</h1>
       <p className='w-100 flex items-center justify-center text-sm my-4 text-gray-600'>Powered by the OpenAI API using GPT3.5</p>
       </div>
-    <form className="app max-w-2xl flex flex-col justify-center bg-gray-100 rounded-xl drop-shadow-md " onSubmit={getQuery}>
+    <div className="app max-w-2xl flex flex-col justify-center bg-gray-100 rounded-xl drop-shadow-md ">
       <input id='text-input' className="text-center text-md" placeholder='Create a Table for Cars' value={value} onChange={e => setValue(e.target.value)}/>
       <div className='button-container flex justify-center space-x-3 text-lg'>
         <button className="bg-gray-300 rounded-2xl font-bold px-3 py-1 hover:bg-gray-800 hover:text-white" id='get-query' onClick={getQuery}>Generate!</button>
@@ -118,8 +123,7 @@ const latest = filteredGPTMessages[filteredGPTMessages.length-1]
       
       
       
-    </form>
-    <Footer />
+    </div>
     </div>
   );
 }
